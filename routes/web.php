@@ -2,10 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'HomeController');
 
-Route::view('about','about');
+Route::get('posts/{post:slug}', 'PostController@show');
+
+Route::view('about', 'about');
 Route::view('contact', 'contact');
 Route::view('login', 'login');

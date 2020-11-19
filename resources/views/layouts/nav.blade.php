@@ -19,4 +19,4 @@
             <a class="nav-link" href="/login">Login</a>
           </li>
     </div>
-  </nav>
+</nav>
