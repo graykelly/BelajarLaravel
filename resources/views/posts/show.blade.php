@@ -4,6 +4,10 @@
 @section('content')
 <div class="container">
     <h1><p>{{ $post->title }}</p></h1>
+    <div class="text-secondary">
+      {{ $post->category->name }} &middot; {{ $post->created_at->format("d F, Y") }}
+    </div>
+    <hr>
     <p>{{ $post->body }}</p>
     <div>
         <!-- Button trigger modal -->
@@ -22,8 +26,12 @@
           </button>
         </div>
         <div class="modal-body">
-            <div><h3>Post: {{ $post->title }}</h3></div>
-            <div><small>Published: {{ $post->created_at->format("d F, Y") }}</small></div>
+            <div>
+              <h3>Post: {{ $post->title }}</h3>
+            </div>
+            <div>
+              <small>Published: {{ $post->created_at->format("d F, Y") }}</small>
+            </div>
                 <form action="/posts/{{ $post->slug }}/delete" method="post">
                     @csrf
                     @method('delete')
